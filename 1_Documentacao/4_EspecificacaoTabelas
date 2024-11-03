@@ -1,0 +1,61 @@
+# Especificação das Tabelas
+
+Este documento descreve as tabelas do banco de dados para o Sistema de Gerenciamento de Consultas Médicas, incluindo detalhes sobre as colunas e suas respectivas funções.
+
+## Tabela: paciente
+
+| Coluna                      | Tipo         | Descrição                                                      |
+|-----------------------------|--------------|--------------------------------------------------------------|
+| id_paciente                 | integer      | Identificador único do paciente (chave primária).            |
+| nome_paciente               | string       | Nome completo do paciente.                                   |
+| data_nascimento_paciente    | date         | Data de nascimento do paciente.                              |
+| endereco_paciente           | string       | Endereço de residência do paciente.                          |
+| telefone_paciente           | string       | Número de telefone do paciente.                              |
+| email_paciente              | string       | Endereço de e-mail do paciente (não nulo).                  |
+| historico_medico_paciente   | string       | Breve histórico médico do paciente.                          |
+
+## Tabela: medico
+
+| Coluna                      | Tipo         | Descrição                                                      |
+|-----------------------------|--------------|--------------------------------------------------------------|
+| id_medico                   | integer      | Identificador único do médico (chave primária).             |
+| nome_medico                 | string       | Nome completo do médico.                                    |
+| especialidade_medico        | string       | Especialidade do médico (ex: Dermatologia).                 |
+| telefone_medico             | string       | Número de telefone do médico (não nulo).                    |
+| email_medico                | string       | Endereço de e-mail do médico (não nulo).                   |
+
+## Tabela: consulta
+
+| Coluna                      | Tipo         | Descrição                                                      |
+|-----------------------------|--------------|--------------------------------------------------------------|
+| id_consulta                 | integer      | Identificador único da consulta (chave primária).            |
+| id_pacienteFK               | integer      | Identificador do paciente que agendou a consulta (FK).      |
+| id_medicoFK                 | integer      | Identificador do médico responsável pela consulta (FK).      |
+| data_consulta               | date         | Data agendada para a consulta.                               |
+| horario_consulta            | datetime     | Horário agendado para a consulta.                            |
+| status_consulta             | string       | Status da consulta (ex: Agendada, Cancelada, Realizada).    |
+
+## Tabela: registroMedico
+
+| Coluna                      | Tipo         | Descrição                                                      |
+|-----------------------------|--------------|--------------------------------------------------------------|
+| id_registro                 | integer      | Identificador único do registro médico (chave primária).     |
+| id_consultaFK               | integer      | Identificador da consulta associada (FK).                    |
+| prescricao_registro         | string       | Prescrição feita pelo médico após a consulta.                |
+| observacao_registro         | string       | Observações adicionais do médico sobre a consulta.           |
+
+## Tabela: pagamento
+
+| Coluna                      | Tipo         | Descrição                                                      |
+|-----------------------------|--------------|--------------------------------------------------------------|
+| id_pagamento                | integer      | Identificador único do pagamento (chave primária).           |
+| id_consultaFK               | integer      | Identificador da consulta associada ao pagamento (FK).       |
+| valor_pagamento             | float        | Valor total da consulta.                                     |
+| valor_pago_pagamento        | float        | Valor que foi realmente pago.                                |
+| data_pagamento              | date         | Data em que o pagamento foi realizado.                       |
+| status_pagamento            | string       | Status do pagamento (ex: Pago, Pendente).                   |
+
+## Observações
+
+- As tabelas estão inter-relacionadas através de chaves estrangeiras (FK), garantindo a integridade referencial.
+- Todos os campos que são marcados como "não nulo" devem ser obrigatoriamente preenchidos.

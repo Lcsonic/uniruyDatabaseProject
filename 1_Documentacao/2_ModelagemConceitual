@@ -1,0 +1,81 @@
+Etapa de modelagem conceitual do projeto
+
+    Etapa centrada em colher os requisitos e discenir acerca das entidades que
+    que farão parte do sistema.
+
+    Entidades:
+
+        Legenda:
+            PK - Primary Key (Chave primaria)
+            FK - Chave Estrangeira (Foreign Key)
+
+        Pacientes -
+
+            ID_Paciente (PK)
+            Nome
+            Data_Nascimento
+            Endereço
+            Telefone
+            E-mail
+            Histórico_Médico (pode ser um resumo básico)
+
+        Médicos - 
+
+            ID_Medico (PK)
+            Nome
+            Especialidade
+            Telefone
+            E-mail
+
+        Consultas -
+
+            ID_Consulta (PK)
+            ID_Paciente (FK)
+            ID_Medico (FK)
+            Data_Consulta
+            Horário_Consulta
+            Status (Agendada, Cancelada, Realizada)
+
+        Registros Médicos -
+
+            ID_Registro (PK)
+            ID_Paciente (FK) – relação direta com Paciente
+            ID_Consulta (FK) – relação com a Consulta
+            Diagnóstico
+            Prescrição
+            Observações
+
+        Pagamentos -
+
+            ID_Pagamento (PK)
+            ID_Consulta (FK)
+            Valor
+            Data_Pagamento
+            Status_Pagamento (Pago, Pendente)
+    
+    Relacionamentos:
+
+        Paciente - Consulta: Um paciente pode ter várias consultas
+
+            Cardinalidade: Um paciente pode realizar várias consultas ao longo do tempo.
+            [Paciente] 1 -----> N [Consutas]
+            
+        Médico - Consulta: Um médico pode realizar várias consultas.
+
+            Cardinalidade: Um médico pode atender a vários pacientes em consultas agendadas.
+            [Médico] 1 -----> N [Consulta]
+
+        Paciente - Registro Médico: Um paciente pode ter vários registros médicos.
+
+            Cardinalidade: Cada registro médico está associado a um paciente, permitindo o acesso direto às informações do paciente no registro.
+            [Paciente] 1 -----> N [Registro]
+
+        Consulta - Registro Médico: Cada consulta pode gerar uma registro médico (Relacionamento 1:1).
+
+            Cardinalidade: Cada consulta realizada terá um único registro médico associado, onde o médico pode registrar diagnósticos e prescrições.
+            [Consulta] 1 -----> 1 [Registro]
+
+        Consulta - Pagamento: Uma consulta pode ter um pagamento associado (Relacionamento 1:1).
+
+            Cardinalidade: Após a consulta, pode haver um pagamento relacionado, com informações como valor e status.
+            [Consulta] 1 -----> 1 [Pagamento]

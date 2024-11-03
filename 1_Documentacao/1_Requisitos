@@ -1,0 +1,74 @@
+Etapa de requisitos do sistema.
+
+    Etapa inicial de busca e pesquisa de requisitos do sistema para desenvolvimento
+    do objetivo e funções da aplicação
+
+    Requisitos:
+
+        1. Requisitos Funcionais
+        Estes são os requisitos que definem o que o sistema deve fazer.
+
+            a) Gerenciamento de Pacientes
+                O sistema deve permitir cadastrar, editar, visualizar e excluir pacientes.
+                O sistema deve armazenar informações como nome, data de nascimento, endereço, telefone, e-mail, e histórico médico do paciente.
+                
+            b) Gerenciamento de Médicos
+                O sistema deve permitir cadastrar, editar, visualizar e excluir médicos.
+                O sistema deve armazenar informações como nome, especialidade, telefone e e-mail.
+            
+            c) Agendamento de Consultas
+                O sistema deve permitir agendar consultas, associando um paciente e um médico a uma data e horário.
+                O sistema deve impedir a marcação de duas consultas no mesmo horário para o mesmo médico.
+                O sistema deve permitir o cancelamento e remarcação de consultas.
+            
+            d) Gerenciamento de Registros Médicos
+                O sistema deve permitir que, após a consulta, o médico registre informações sobre o diagnóstico, prescrição médica e observações.
+                O sistema deve permitir visualizar o histórico de consultas e registros médicos de cada paciente.
+                
+            e) Controle de Pagamentos
+                O sistema deve permitir registrar pagamentos relacionados às consultas.
+                O sistema deve armazenar informações como valor do pagamento, data e status (pago, pendente).
+                O sistema deve gerar relatórios de pagamentos por período (diário, semanal, mensal).
+            
+            f) Relatórios
+                O sistema deve permitir gerar relatórios de:
+                Consultas por médico e por período.
+                Histórico médico de pacientes.
+                Status de pagamentos.
+                
+            g) Notificações e Lembretes
+                O sistema deve enviar lembretes automáticos para pacientes sobre consultas futuras por e-mail ou SMS.
+                O sistema deve notificar médicos sobre suas consultas agendadas.
+                
+            h) Segurança e Controle de Acesso
+                O sistema deve permitir níveis de acesso diferentes (ex.: administradores, médicos, recepcionistas).
+                O sistema deve garantir que apenas médicos possam acessar e editar os registros médicos.
+                O sistema deve exigir autenticação segura (login e senha).
+
+        2. Requisitos Não Funcionais
+        Estes são os requisitos que definem como o sistema deve funcionar.
+
+            a) Desempenho
+                O sistema deve ser capaz de atender até 1000 usuários simultâneos sem perda de desempenho.
+                O tempo de resposta das consultas no banco de dados deve ser inferior a 2 segundos.
+            
+            b) Escalabilidade
+                O sistema deve ser escalável para suportar um número crescente de usuários e dados sem comprometimento da performance.
+            
+            c) Segurança
+                Todos os dados sensíveis, como informações de pacientes e pagamentos, devem ser criptografados.
+                O sistema deve ter proteção contra ataques de injeção de SQL e outros tipos de ataques comuns.
+            
+            d) Compatibilidade
+                O sistema deve ser compatível com navegadores modernos (Chrome, Firefox, Edge) e dispositivos móveis.
+            
+            e) Backup e Recuperação
+            
+                O sistema deve realizar backups diários automáticos do banco de dados.
+                O sistema deve permitir a recuperação de dados em caso de falha.
+            
+            f) Confiabilidade
+                O sistema deve estar disponível 99.9% do tempo, exceto em janelas programadas de manutenção.
+
+        Por fins de de escopo e demostração estarei ignorando requisitos não funcionais como Desempenho e Segurança
+        deixando esses para um cenário de prototipagem futura
