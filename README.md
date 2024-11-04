@@ -49,5 +49,4 @@ Possiveis atualizações fora do escopo do tabalho:
   Marcar Exames:
     Exames só podem ser marcados caso consulta ja esteja realizada.
 
-  Emitir Atestado:
-    Emitir atestado vinculado a médico, paciente e registro médico
+  
