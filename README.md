@@ -17,6 +17,8 @@ Softwares utilizados
 
 Esquema de Diretório do projeto
 
+Abrir em um editor de código para o diagrama ficar formatado correto
+
   GerenciamentoConsultasMedicas/
   ├── Documentacao/
   │   ├── Requisitos.md
